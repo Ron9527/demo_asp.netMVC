@@ -1,0 +1,118 @@
+﻿@model dotNetDemo.Models.DeviceInfo
+
+@{
+    ViewBag.Title = "Details";
+    if (Session["Account"] == null)
+    {
+        Response.Redirect("~/LogIn/Index");
+    }
+}
+
+<h2>Details</h2>
+<div style="text-align:right"><a href="@Url.Action("LogOut","LogIn")">LogOut</a></div>
+<div>
+    <h4>DeviceInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DeivceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeivceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Department)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceConfig)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceConfig)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MacAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MacAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceBrand)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceBrand)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceMode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceMode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeviceStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeviceStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Comment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Comment)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

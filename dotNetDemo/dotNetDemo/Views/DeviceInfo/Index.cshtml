@@ -1,0 +1,131 @@
+﻿@model IEnumerable<dotNetDemo.Models.DeviceInfo>
+@{
+    ViewBag.Title = "Index";
+    if (Session["Account"] == null || Session["Authority"] == null)
+    {
+        Response.Redirect("~/LogIn/Index");
+    }
+}
+
+<h2>Hello,<span style="color:darkorange">@Session["Account"]</span></h2>
+<div style="text-align:right"><a href="@Url.Action("LogOut","LogIn")">LogOut</a></div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <div>
+    @using (Html.BeginForm("Search", "DeviceInfo", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>
+                    Search: Type in device ID
+                </td>
+            </tr>
+            <tr>
+                <td>@Html.EditorFor(model => model.First().DeivceId)</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Search" />
+                </td>
+            </tr>
+        </table>
+    }
+    </div>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DeivceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceConfig)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MacAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceBrand)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceMode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PurchaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeviceStatus)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Comment)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeivceId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceConfig)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MacAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceBrand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceMode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PurchaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeviceStatus)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Comment)
+        </td>
+        @if ((int)@Session["Authority"] == 0)
+        {
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.DeivceId })
+                @Html.ActionLink("Details", "Details", new { id = item.DeivceId })
+                @Html.ActionLink("Delete", "Delete", new { id = item.DeivceId })
+            </td>
+        }
+        else
+        {
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.DeivceId })
+            </td>
+        }
+    </tr>
+}
+
+</table>

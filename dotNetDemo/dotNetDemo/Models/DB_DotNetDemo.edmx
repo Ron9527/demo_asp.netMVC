@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MvcCrudModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DeviceInfo">
+          <Key>
+            <PropertyRef Name="DeivceId" />
+          </Key>
+          <Property Name="DeivceId" Type="int" Nullable="false" />
+          <Property Name="DeviceName" Type="char" MaxLength="10" />
+          <Property Name="Department" Type="char" MaxLength="10" />
+          <Property Name="UserName" Type="char" MaxLength="10" />
+          <Property Name="Phone" Type="char" MaxLength="10" />
+          <Property Name="DeviceConfig" Type="nvarchar" MaxLength="200" />
+          <Property Name="MacAddress" Type="char" MaxLength="10" />
+          <Property Name="DeviceBrand" Type="char" MaxLength="10" />
+          <Property Name="DeviceMode" Type="char" MaxLength="10" />
+          <Property Name="PurchaseDate" Type="varchar" MaxLength="10" />
+          <Property Name="DeviceStatus" Type="char" MaxLength="10" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="MaintanceInfo">
+          <Key>
+            <PropertyRef Name="MaintanceId" />
+          </Key>
+          <Property Name="MaintanceId" Type="int" Nullable="false" />
+          <Property Name="DeviceId" Type="char" MaxLength="10" />
+          <Property Name="Maintainer" Type="char" MaxLength="10" />
+          <Property Name="DeviceName" Type="char" MaxLength="10" />
+          <Property Name="MaintanceReason" Type="nvarchar" MaxLength="200" />
+          <Property Name="MaintanceResult" Type="char" MaxLength="10" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="SystemInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="SystemName" Type="nvarchar" MaxLength="10" />
+          <Property Name="SystemIP" Type="nvarchar" MaxLength="10" />
+          <Property Name="SystemRunTime" Type="nvarchar" MaxLength="20" />
+          <Property Name="SystemInfo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Account" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="LogInTime" Type="datetime" Nullable="false" />
+          <Property Name="LogInIP" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Authority" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="MvcCrudModelStoreContainer">
+          <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaintanceInfo" EntityType="Self.MaintanceInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemInfo" EntityType="Self.SystemInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MvcCrudModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DeviceInfo">
+          <Key>
+            <PropertyRef Name="DeivceId" />
+          </Key>
+          <Property Name="DeivceId" Type="Int32" Nullable="false" />
+          <Property Name="DeviceName" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Department" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="UserName" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DeviceConfig" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MacAddress" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DeviceBrand" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DeviceMode" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="PurchaseDate" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DeviceStatus" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MaintanceInfo">
+          <Key>
+            <PropertyRef Name="MaintanceId" />
+          </Key>
+          <Property Name="MaintanceId" Type="Int32" Nullable="false" />
+          <Property Name="DeviceId" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Maintainer" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DeviceName" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MaintanceReason" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MaintanceResult" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Comment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SystemInfo">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="SystemName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SystemIP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SystemRunTime" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SystemInfo1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserInfo">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Account" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="LogInTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LogInIP" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Authority" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DB_dotNetDemo" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DeviceInfo" EntityType="Self.DeviceInfo" />
+          <EntitySet Name="MaintanceInfo" EntityType="Self.MaintanceInfo" />
+          <EntitySet Name="SystemInfo" EntityType="Self.SystemInfo" />
+          <EntitySet Name="UserInfo" EntityType="Self.UserInfo" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MvcCrudModelStoreContainer" CdmEntityContainer="DB_dotNetDemo">
+          <EntitySetMapping Name="DeviceInfo">
+            <EntityTypeMapping TypeName="MvcCrudModel.DeviceInfo">
+              <MappingFragment StoreEntitySet="DeviceInfo">
+                <ScalarProperty Name="DeivceId" ColumnName="DeivceId" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="DeviceConfig" ColumnName="DeviceConfig" />
+                <ScalarProperty Name="MacAddress" ColumnName="MacAddress" />
+                <ScalarProperty Name="DeviceBrand" ColumnName="DeviceBrand" />
+                <ScalarProperty Name="DeviceMode" ColumnName="DeviceMode" />
+                <ScalarProperty Name="PurchaseDate" ColumnName="PurchaseDate" />
+                <ScalarProperty Name="DeviceStatus" ColumnName="DeviceStatus" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaintanceInfo">
+            <EntityTypeMapping TypeName="MvcCrudModel.MaintanceInfo">
+              <MappingFragment StoreEntitySet="MaintanceInfo">
+                <ScalarProperty Name="MaintanceId" ColumnName="MaintanceId" />
+                <ScalarProperty Name="DeviceId" ColumnName="DeviceId" />
+                <ScalarProperty Name="Maintainer" ColumnName="Maintainer" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="MaintanceReason" ColumnName="MaintanceReason" />
+                <ScalarProperty Name="MaintanceResult" ColumnName="MaintanceResult" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemInfo">
+            <EntityTypeMapping TypeName="MvcCrudModel.SystemInfo">
+              <MappingFragment StoreEntitySet="SystemInfo">
+                <ScalarProperty Name="SystemName" ColumnName="SystemName" />
+                <ScalarProperty Name="SystemIP" ColumnName="SystemIP" />
+                <ScalarProperty Name="SystemRunTime" ColumnName="SystemRunTime" />
+                <ScalarProperty Name="SystemInfo1" ColumnName="SystemInfo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserInfo">
+            <EntityTypeMapping TypeName="MvcCrudModel.UserInfo">
+              <MappingFragment StoreEntitySet="UserInfo">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Account" ColumnName="Account" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LogInTime" ColumnName="LogInTime" />
+                <ScalarProperty Name="LogInIP" ColumnName="LogInIP" />
+                <ScalarProperty Name="Authority" ColumnName="Authority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
